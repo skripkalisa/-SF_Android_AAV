@@ -8,7 +8,6 @@ import com.example.filmsearch.view.rv_viewholders.FilmViewHolder
 import com.example.filmsearch.R
 import com.example.filmsearch.domain.Film
 
-//import kotlinx.android.synthetic.main.film_item.view.*
 
 //в параметр передаем слушатель, чтобы мы потом могли обрабатывать нажатия из класса Activity
 class FilmListRecyclerAdapter(private val clickListener: OnItemClickListener) :

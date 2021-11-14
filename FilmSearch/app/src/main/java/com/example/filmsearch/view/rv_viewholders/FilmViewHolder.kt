@@ -9,7 +9,7 @@ import com.example.filmsearch.R
 import com.example.filmsearch.domain.Film
 import com.example.filmsearch.view.customviews.RatingDonutView
 
-//import kotlinx.android.synthetic.main.film_item.view.*
+
 
 
 //В конструктор класс передается layout, который мы создали(film_item.xml)
