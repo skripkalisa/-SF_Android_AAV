@@ -1,10 +1,13 @@
-package com.example.filmsearch
+package com.example.filmsearch.view.rv_viewholders
 
 import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.filmsearch.R
+import com.example.filmsearch.domain.Film
+import com.example.filmsearch.view.customviews.RatingDonutView
 
 //import kotlinx.android.synthetic.main.film_item.view.*
 

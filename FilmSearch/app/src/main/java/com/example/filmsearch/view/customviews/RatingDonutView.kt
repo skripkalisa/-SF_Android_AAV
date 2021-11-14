@@ -1,9 +1,10 @@
-package com.example.filmsearch
+package com.example.filmsearch.view.customviews
 
 import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
+import com.example.filmsearch.R
 import kotlin.math.min
 
 class RatingDonutView  @JvmOverloads constructor(context: Context, attributeSet: AttributeSet? = null) : View(context, attributeSet){

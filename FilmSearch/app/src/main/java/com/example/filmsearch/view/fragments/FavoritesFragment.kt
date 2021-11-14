@@ -1,14 +1,17 @@
-package com.example.filmsearch
+package com.example.filmsearch.view.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import com.example.filmsearch.view.rv_adapters.FilmListRecyclerAdapter
+import com.example.filmsearch.MainActivity
+import com.example.filmsearch.view.rv_adapters.TopSpacingItemDecoration
 import com.example.filmsearch.databinding.FragmentFavoritesBinding
+import com.example.filmsearch.domain.Film
+import com.example.filmsearch.utils.AnimationHelper
 
 class FavoritesFragment : Fragment() {
 
