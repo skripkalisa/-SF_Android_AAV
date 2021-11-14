@@ -1,28 +1,30 @@
-package com.example.filmsearch
+package com.example.filmsearch.view.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.FrameLayout
+import com.example.filmsearch.databinding.FragmentSelectionsBinding
+import com.example.filmsearch.utils.AnimationHelper
 
 
 class SelectionsFragment : Fragment() {
-
+    private lateinit var binding: FragmentSelectionsBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_selections, container, false)
+        binding = FragmentSelectionsBinding.inflate(inflater, container, false)
+        return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val selectionsFragmentRoot = view.findViewById<FrameLayout>(R.id.selections_fragment_root)
         AnimationHelper.performFragmentCircularRevealAnimation(
-            selectionsFragmentRoot,
+            binding.selectionsFragmentRoot,
             requireActivity(),
             4
         )
