@@ -15,7 +15,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.filmsearch.MainActivity
+import com.example.filmsearch.view.MainActivity
 import com.example.filmsearch.R
 import com.example.filmsearch.databinding.FragmentHomeBinding
 import com.example.filmsearch.domain.Film

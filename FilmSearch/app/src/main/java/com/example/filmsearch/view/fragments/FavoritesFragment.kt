@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.filmsearch.view.rv_adapters.FilmListRecyclerAdapter
-import com.example.filmsearch.MainActivity
+import com.example.filmsearch.view.MainActivity
 import com.example.filmsearch.view.rv_adapters.TopSpacingItemDecoration
 import com.example.filmsearch.databinding.FragmentFavoritesBinding
 import com.example.filmsearch.domain.Film
