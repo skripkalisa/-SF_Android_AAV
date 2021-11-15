@@ -26,9 +26,6 @@ import com.example.filmsearch.viewmodel.HomeFragmentViewModel
 import java.util.*
 
 
-//import kotlinx.android. .main.fragment_home.*
-
-
 class HomeFragment : Fragment() {
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
     private lateinit var binding: FragmentHomeBinding
