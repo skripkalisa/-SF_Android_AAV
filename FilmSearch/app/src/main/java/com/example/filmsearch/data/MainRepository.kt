@@ -1,5 +1,3 @@
 package com.example.filmsearch.data
 
-class MainRepository {
-
-}
+class MainRepository

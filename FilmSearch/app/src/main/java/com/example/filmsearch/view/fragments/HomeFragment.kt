@@ -29,9 +29,11 @@ import java.util.*
 class HomeFragment : Fragment() {
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
     private lateinit var binding: FragmentHomeBinding
+
     private val viewModel by lazy {
         ViewModelProvider.NewInstanceFactory().create(HomeFragmentViewModel::class.java)
     }
+
     private var filmsDataBase = listOf<Film>()
         //Используем backing field
         set(value) {
@@ -51,7 +53,7 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -64,16 +66,17 @@ class HomeFragment : Fragment() {
             1
         )
 
+        initSearchView(view)
+
+        initRecycler(view)
+
+        //Кладем нашу БД в RV
         viewModel.filmsListLiveData.observe(viewLifecycleOwner, {
             filmsDataBase = it
         })
         sceneTransition(binding.homeFragmentRoot)
-
-        initSearchView(view)
-
-        initRecycler(view)
-        //Кладем нашу БД в RV
-        filmsAdapter.addItems(filmsDataBase)
+//
+//        filmsAdapter.addItems(filmsDataBase)
     }
 
     private fun initRecycler(view: View) {

@@ -29,9 +29,9 @@ class DetailsFragment : Fragment() {
 
         film = setFilmsDetails()
 
-        if (::film.isInitialized) {
-            println("initialized")
-        }
+//        if (::film.isInitialized) {
+//            println("initialized")
+//        }
         binding.detailsFabFavorites.setOnClickListener {
             if (!film.isInFavorites) {
                 binding.detailsFabFavorites.setImageResource(R.drawable.ic_baseline_favorite_24)
