@@ -2,6 +2,7 @@ package com.example.filmsearch
 
 import android.app.Application
 import com.example.filmsearch.di.AppComponent
+//import com.example.filmsearch.di.DaggerAppComponent
 
 
 
@@ -21,9 +22,3 @@ class App : Application() {
             private set
     }
 }
-
-
-
-
-
-

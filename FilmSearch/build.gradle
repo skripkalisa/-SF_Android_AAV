@@ -4,6 +4,10 @@ buildscript {
         google()
         mavenCentral()
     }
+//    plugins {
+//
+//    id "org.jetbrains.kotlin.android" version "1.4.20" apply false
+//}
     dependencies {
         classpath 'com.android.tools.build:gradle:7.0.3'
 

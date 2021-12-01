@@ -13,7 +13,7 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
     //В конструктор мы будм передавать коллбэк из вьюмоделе, чтобы реагировать на то, когда фильмы будут получены
     //и страницу, котороую нужно загрузить (это для пагинации)
     fun getFilmsFromApi(page: Int, callback: HomeFragmentViewModel.ApiCallback) {
-        retrofitService.getFilms(API.KEY, "ru-RU", page).enqueue(object : Callback<TmdbResultsDto> {
+        retrofitService.getFilms(API.KEY, "en", page).enqueue(object : Callback<TmdbResultsDto> {
             override fun onResponse(call: Call<TmdbResultsDto>, response: Response<TmdbResultsDto>) {
                 //При успехе мы вызываем метод передаем onSuccess и в этот коллбэк список фильмов
                 callback.onSuccess(Converter.convertApiListToDtoList(response.body()?.tmdbFilms))
@@ -26,4 +26,3 @@ class Interactor(private val repo: MainRepository, private val retrofitService: 
         })
     }
 }
-
