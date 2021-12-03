@@ -1,10 +1,8 @@
 package com.example.filmsearch
 
 import android.app.Application
-import com.example.filmsearch.di.AppComponent
-//import com.example.filmsearch.di.DaggerAppComponent
 
-
+import com.example.filmsearch.di.*
 
 class App : Application() {
     lateinit var dagger: AppComponent
@@ -13,7 +11,7 @@ class App : Application() {
         super.onCreate()
         instance = this
         //Создаем компонент
-        dagger = DaggerAppComponent.create()
+//        dagger = DaggerAppComponent.create()
     }
 
 
