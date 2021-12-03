@@ -3,6 +3,7 @@ package com.example.filmsearch.di.modules
 import com.example.filmsearch.BuildConfig
 import com.example.filmsearch.data.ApiConstants
 import com.example.filmsearch.data.TmdbApi
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -13,33 +14,17 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
-class RemoteModule {
-    @Provides
+abstract class RemoteModule {
+    @Binds
     @Singleton
-    fun provideOkHttpClient(): OkHttpClient = OkHttpClient.Builder()
-        //Настраиваем таймауты для медленного интернета
-        .callTimeout(30, TimeUnit.SECONDS)
-        .readTimeout(30, TimeUnit.SECONDS)
-        //Добавляем логгер
-        .addInterceptor(HttpLoggingInterceptor().apply {
-            if (BuildConfig.DEBUG) {
-                level = HttpLoggingInterceptor.Level.BASIC
-            }
-        })
-        .build()
+    abstract fun provideOkHttpClient(okHttpClient : OkHttpClient): OkHttpClient
 
-    @Provides
-    @Singleton
-    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit = Retrofit.Builder()
-        //Указываем базовый URL из констант
-        .baseUrl(ApiConstants.BASE_URL)
-        //Добавляем конвертер
-        .addConverterFactory(GsonConverterFactory.create())
-        //Добавляем кастомный клиент
-        .client(okHttpClient)
-        .build()
 
-    @Provides
+    @Binds
     @Singleton
-    fun provideTmdbApi(retrofit: Retrofit): TmdbApi = retrofit.create(TmdbApi::class.java)
+    abstract fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit
+
+    @Binds
+    @Singleton
+    abstract fun provideTmdbApi(retrofit: Retrofit): TmdbApi
 }

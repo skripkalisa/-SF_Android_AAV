@@ -1,13 +1,13 @@
 package com.example.filmsearch.di.modules
 
 import com.example.filmsearch.data.MainRepository
+import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import javax.inject.Singleton
 
 @Module
-class DatabaseModule {
-    @Provides
+abstract class DatabaseModule {
+    @Binds
     @Singleton
-    fun provideRepository() = MainRepository()
+    abstract fun provideRepository(repository: MainRepository): MainRepository
 }
