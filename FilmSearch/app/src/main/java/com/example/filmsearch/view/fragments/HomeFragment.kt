@@ -27,6 +27,7 @@ import java.util.*
 
 
 class HomeFragment : Fragment() {
+
     private lateinit var filmsAdapter: FilmListRecyclerAdapter
     private lateinit var binding: FragmentHomeBinding
     private val viewModel by lazy {
