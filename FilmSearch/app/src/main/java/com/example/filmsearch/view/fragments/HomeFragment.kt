@@ -65,17 +65,32 @@ class HomeFragment : Fragment() {
             1
         )
 
+        //Кладем нашу БД в RV
         viewModel.filmsListLiveData.observe(viewLifecycleOwner, {
             filmsDataBase = it
+            filmsAdapter.addItems(it)
         })
+//        filmsAdapter.addItems(filmsDataBase)
         sceneTransition(binding.homeFragmentRoot)
 
         initSearchView(view)
 
         initRecycler(view)
-        //Кладем нашу БД в RV
-        filmsAdapter.addItems(filmsDataBase)
+        initPullToRefresh()
     }
+
+private fun initPullToRefresh() {
+   //Вешаем слушатель, чтобы вызвался pull to refresh
+   binding.pullToRefresh.setOnRefreshListener {
+       //Чистим адаптер(items нужно будет сделать паблик или создать для этого публичный метод)
+       filmsAdapter.items.clear()
+       //Делаем новый запрос фильмов на сервер
+       viewModel.getFilms()
+       //Убираем крутящееся колечко
+       binding.pullToRefresh.isRefreshing = false
+   }
+}
+
 
     private fun initRecycler(view: View) {
         val mainRecycler = view.findViewById<RecyclerView>(R.id.main_recycler)

@@ -5,10 +5,9 @@ import androidx.lifecycle.ViewModel
 import com.example.filmsearch.App
 import com.example.filmsearch.domain.Film
 import com.example.filmsearch.domain.Interactor
-import org.koin.core.KoinComponent
 import javax.inject.Inject
 
-class HomeFragmentViewModel : ViewModel(), KoinComponent {
+class HomeFragmentViewModel : ViewModel() {
     val filmsListLiveData:  MutableLiveData<List<Film>> = MutableLiveData()
     //Инициализируем интерактор
     @Inject
@@ -16,6 +15,10 @@ class HomeFragmentViewModel : ViewModel(), KoinComponent {
 
     init {
         App.instance.dagger.inject(this)
+        getFilms()
+    }
+
+    fun getFilms() {
         interactor.getFilmsFromApi(1, object : ApiCallback {
             override fun onSuccess(films: List<Film>) {
                 filmsListLiveData.postValue(films)
@@ -23,11 +26,17 @@ class HomeFragmentViewModel : ViewModel(), KoinComponent {
 
             override fun onFailure() {
             }
+
+            override fun onSharedPreferenceChanged(convertApiListToDtoList: List<Film>) {
+
+            }
+
         })
     }
 
     interface ApiCallback {
         fun onSuccess(films: List<Film>)
         fun onFailure()
+        fun onSharedPreferenceChanged(convertApiListToDtoList: List<Film>)
     }
 }
