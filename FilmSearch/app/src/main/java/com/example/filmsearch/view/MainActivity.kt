@@ -1,21 +1,17 @@
 package com.example.filmsearch.view
 
-import android.graphics.BitmapFactory
-import android.os.Build
 import android.os.Bundle
-import android.widget.Toast
-import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.filmsearch.R
 import com.example.filmsearch.databinding.ActivityMainBinding
 import com.example.filmsearch.domain.Film
 import com.example.filmsearch.view.fragments.*
 
-class MainActivity : ExtraActivity() {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
-    @RequiresApi(Build.VERSION_CODES.Q)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //Инициализируем объект
@@ -30,16 +26,8 @@ class MainActivity : ExtraActivity() {
             .add(R.id.fragment_placeholder, HomeFragment())
             .addToBackStack(null)
             .commit()
-
-        if (checkPermission()) {
-            Toast.makeText(this, "Получено", Toast.LENGTH_SHORT).show()
-        } else {
-            requestPermission()
-        }
-        val bitmap = BitmapFactory.decodeResource(resources, R.drawable.cat)
-        loadToGallery(bitmap)
-
     }
+
 
     fun launchDetailsFragment(film: Film) {
         //Создаем "посылку"
