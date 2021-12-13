@@ -26,10 +26,13 @@ class Interactor(
                     call: Call<TmdbResultsDto>,
                     response: Response<TmdbResultsDto>
                 ) {
-                    //При успехе мы вызываем метод передаем onSuccess и в этот коллбэк список фильмов
-                    callback.onSuccess(Converter.convertApiListToDtoList(response.body()?.tmdbFilms))
-
-
+                    //При успехе мы вызываем метод, передаем onSuccess и в этот коллбэк список фильмов
+                    val list = Converter.convertApiListToDtoList(response.body()?.tmdbFilms)
+                    //Кладем фильмы в бд
+                    list.forEach {
+                        repo.putToDb(film = it)
+                    }
+                    callback.onSuccess(list)
 
                     callback.onSharedPreferenceChanged(Converter.convertApiListToDtoList(response.body()?.tmdbFilms))
 
@@ -46,7 +49,7 @@ class Interactor(
                 }
             })
     }
-
+    fun getFilmsFromDB(): List<Film> = repo.getAllFromDB()
     //Метод для сохранения настроек
     fun saveDefaultCategoryToPreferences(category: String) {
         preferences.saveDefaultCategory(category)
