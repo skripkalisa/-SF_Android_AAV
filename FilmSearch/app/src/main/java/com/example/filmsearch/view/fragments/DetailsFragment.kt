@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.filmsearch.R
 import com.example.filmsearch.data.ApiConstants
 import com.example.filmsearch.databinding.FragmentDetailsBinding
-import com.example.filmsearch.domain.Film
+import com.example.filmsearch.data.entity.Film
 
 
 class DetailsFragment : Fragment() {

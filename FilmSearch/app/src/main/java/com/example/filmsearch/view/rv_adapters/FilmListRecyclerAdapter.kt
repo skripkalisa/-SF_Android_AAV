@@ -6,7 +6,7 @@ import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.filmsearch.view.rv_viewholders.FilmViewHolder
 import com.example.filmsearch.R
-import com.example.filmsearch.domain.Film
+import com.example.filmsearch.data.entity.Film
 
 
 //в параметр передаем слушатель, чтобы мы потом могли обрабатывать нажатия из класса Activity

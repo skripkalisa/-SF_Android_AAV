@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.filmsearch.R
 import com.example.filmsearch.databinding.ActivityMainBinding
-import com.example.filmsearch.domain.Film
+import com.example.filmsearch.data.entity.Film
 import com.example.filmsearch.view.fragments.*
 
 class MainActivity : AppCompatActivity() {

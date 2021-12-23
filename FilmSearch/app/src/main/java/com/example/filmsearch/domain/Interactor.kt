@@ -1,10 +1,11 @@
 package com.example.filmsearch.domain
 
 import com.example.filmsearch.data.API
-import com.example.filmsearch.data.Entity.TmdbResultsDto
 import com.example.filmsearch.data.MainRepository
 import com.example.filmsearch.data.PreferenceProvider
 import com.example.filmsearch.data.TmdbApi
+import com.example.filmsearch.data.entity.Film
+import com.example.filmsearch.data.entity.TmdbResultsDto
 import com.example.filmsearch.utils.Converter
 import com.example.filmsearch.viewmodel.HomeFragmentViewModel
 import retrofit2.Call
@@ -30,7 +31,7 @@ class Interactor(
                     val list = Converter.convertApiListToDtoList(response.body()?.tmdbFilms)
                     //Кладем фильмы в бд
                     list.forEach {
-                        repo.putToDb(film = it)
+                        repo.putToDb(list)
                     }
                     callback.onSuccess(list)
 

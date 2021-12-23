@@ -1,6 +1,6 @@
 package com.example.filmsearch.data
 
-import com.example.filmsearch.data.Entity.TmdbResultsDto
+import com.example.filmsearch.data.entity.TmdbResultsDto
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
