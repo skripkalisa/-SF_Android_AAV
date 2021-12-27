@@ -17,3 +17,9 @@
 - [Module 36. DI: основные концепции и сравнение библиотек](https://github.com/skripkalisa/SF_Android_AAV/tree/Mod36/FilmSearch)
 
 - [Module 37. Dagger 2](https://github.com/skripkalisa/SF_Android_AAV/tree/Mod37/FilmSearch)
+
+- [Module 38. Android Persistence - Shared Preferences, работа с файлами](https://github.com/skripkalisa/SF_Android_AAV/tree/Mod38/FilmSearch)
+
+- [Module 39. Android Persistence - Реляционные БД](https://github.com/skripkalisa/SF_Android_AAV/tree/Mod39/FilmSearch)
+
+- [Module 40. Android Persistence Pt3, Room](https://github.com/skripkalisa/SF_Android_AAV/tree/Mod40/FilmSearch)
